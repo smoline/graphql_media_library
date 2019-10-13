@@ -9,5 +9,7 @@ module Types
     field :runtime, Integer, null: true
     field :tagline, String, null: true
     field :movie_image_url, String, null: true
+
+    field :owners, [Types::OwnerType], null: false
   end
 end
