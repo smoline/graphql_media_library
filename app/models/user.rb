@@ -1,4 +1,5 @@
 class User < ApplicationRecord
-    has_many :owners, dependent: :destroy
-    has_many :movies, through: :owners
+  include Ownable
+
+  has_many :owners, dependent: :destroy
 end
