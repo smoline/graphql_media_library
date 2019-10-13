@@ -19,10 +19,11 @@ ActiveRecord::Schema.define(version: 2019_10_01_204502) do
     t.string "title"
     t.string "description"
     t.integer "tmdb_id"
+    t.string "imdb_id"
     t.string "release_date"
     t.integer "runtime"
     t.string "tagline"
-    t.integer "imdb_id"
+    t.string "movie_image_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -30,11 +31,13 @@ ActiveRecord::Schema.define(version: 2019_10_01_204502) do
   create_table "owners", force: :cascade do |t|
     t.string "notes"
     t.integer "upc"
+    t.integer "rating"
+    t.string "ownable_type"
+    t.bigint "ownable_id"
     t.bigint "user_id", null: false
-    t.bigint "movie_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["movie_id"], name: "index_owners_on_movie_id"
+    t.index ["ownable_type", "ownable_id"], name: "index_owners_on_ownable_type_and_ownable_id"
     t.index ["user_id"], name: "index_owners_on_user_id"
   end
 
@@ -46,6 +49,5 @@ ActiveRecord::Schema.define(version: 2019_10_01_204502) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "owners", "movies"
   add_foreign_key "owners", "users"
 end
