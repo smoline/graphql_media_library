@@ -36,6 +36,9 @@ export default () => (
             <div key={id}>
               <b>{title}</b>
               <p>{description}</p>
+              <p>{releaseDate}</p>
+              <p>{runtime} mins</p>
+              <p>{tagline}</p>
             </div>
           ))}
       </div>
