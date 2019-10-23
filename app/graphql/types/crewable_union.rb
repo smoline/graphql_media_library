@@ -1,5 +1,5 @@
-class Types::OwnableUnion < Types::BaseUnion
-  description "Objects which may be owned"
+class Types::CrewableUnion < Types::BaseUnion
+  description "Objects which may have crews"
   possible_types Types::MovieType, Types::TvShowType
 
   def self.resolve_type(object, context)
