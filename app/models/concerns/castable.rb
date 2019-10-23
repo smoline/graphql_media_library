@@ -1,6 +1,6 @@
 module Castable
   extend ActiveSupport::Concern
   included do
-    has_many :cast, :as => :castable
+    has_many :casts, :as => :castable
   end
 end
