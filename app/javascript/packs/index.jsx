@@ -10,7 +10,12 @@ import { blue } from '@material-ui/core/colors'
 
 const theme = createMuiTheme({
   palette: {
-    primary: grey,
+    primary: {
+      light: '#eeeeee',
+      main: '#757575',
+      dark: '#424242',
+      contrastText: '#fafafa',
+    },
     secondary: blue,
   },
 })

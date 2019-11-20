@@ -12,6 +12,9 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
   },
+  mainNavbar: {
+    backgroundImage: 'linear-gradient(180deg, #616161 30%, #424242 90%)',
+  },
   menuButton: {
     marginRight: theme.spacing(2),
   },
@@ -66,7 +69,7 @@ export default function SearchAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar className={classes.mainNavbar} position="static">
         <Toolbar>
           <IconButton
             edge="start"
