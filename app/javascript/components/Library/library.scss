@@ -1,0 +1,20 @@
+.media-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 8px 2px 2px;
+  max-width: 185px;
+}
+
+.media-title {
+  display: flex;
+  justify-content: start;
+  color: white;
+}
+
+.media-row2 {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  color: white;
+}

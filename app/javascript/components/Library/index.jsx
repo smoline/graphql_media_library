@@ -2,6 +2,7 @@ import React from 'react'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import Container from '@material-ui/core/Container'
+import './library.scss'
 
 const LIBRARY_QUERY = gql`
   {
@@ -34,14 +35,14 @@ export default () => (
     <Query query={LIBRARY_QUERY}>
       {({ data, loading }) => (
         <div>
-          {loading ? 'loading...' : data.movies.map(({ id, title, movieImageUrl, description, releaseDate, runtime, tagline }) => (
-              <div key={id}>
-                <div className="image-box"></div>
-                <b>{title}</b>
-                <p>{description}</p>
-                <p>{releaseDate}</p>
-                <p>{runtime} mins</p>
-                <p>{tagline}</p>
+          {loading ? 'loading...' : data.movies.map(({ id, title, movieImageUrl, releaseDate, runtime, tagline }) => (
+              <div key={id} className="media-container">
+                <div className="image-box"><img src={movieImageUrl} /></div>
+                <b className="media-title">{title}</b>
+                <div className="media-row2">
+                  <p>{releaseDate}</p>
+                  <p>{runtime} mins</p>
+                </div>
               </div>
             ))}
         </div>
