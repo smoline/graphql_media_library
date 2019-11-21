@@ -50,9 +50,111 @@ Person.create!({
   imdb_people_id: "nm0000358"
 })
 
-Cast.create!({
-  character: "Abraham Lincoln",
-  people_id: 1,
-  castable_type: "Movie",
-  castable_id: 1
+
+Movie.create!({
+  title: "Letters from Iwo Jima",
+  tmdb_id: 1251,
+  imdb_id: "",
+  description: "The story of the battle of Iwo Jima between the United States and Imperial Japan during World War II, as told from the perspective of the Japanese who fought it.",
+  release_date: "2006-12-19",
+  runtime: 141,
+  tagline: "The battle of Iwo Jima seen through the eyes of the Japanese soldiers.",
+  movie_image_url: "http://image.tmdb.org/t/p/w185//nWJJqOryTQOmVXvKUkLcEETUHgT.jpg"
 })
+  
+Owner.create!({
+  user_id: 1,
+  notes: "",
+  upc: nil,
+  rating: 3,
+  ownable_type: "Movie",
+  ownable_id: 2
+})
+
+# Cast.create!({
+#   character: "Abraham Lincoln",
+#   people_id: 1,
+#   castable_type: "Movie",
+#   castable_id: 1
+# })
+
+Movie.create!({
+ title: "Flags of Our Fathers",
+ tmdb_id: 3683,
+ imdb_id: "",
+ description: "There were five Marines and one Navy Corpsman photographed raising the U.S. flag on Mt. Suribachi by Joe Rosenthal on February 23, 1945. This is the story of three of the six surviving servicemen – John 'Doc' Bradley, Pvt. Rene Gagnon and Pvt. Ira Hayes, who fought in the battle to take Iwo Jima from the Japanese.",
+ release_date: "2006-10-18",
+ runtime: 132,
+ tagline: "They fight for their country but they die for their friends.",
+ movie_image_url: "http://image.tmdb.org/t/p/w185//4tbKYa8vZSsTCHKca9D6rS4NJ08.jpg"
+})
+
+Owner.create!({
+  user_id: 1,
+  notes: "",
+  upc: nil,
+  rating: 3,
+  ownable_type: "Movie",
+  ownable_id: 3
+})
+
+Movie.create!({
+ title: "The Man Who Shot Liberty Valance",
+ tmdb_id: 11697,
+ imdb_id: "",
+ description: "A senator, who became famous for killing a notorious outlaw, returns for the funeral of an old friend and tells the truth about his deed.",
+ release_date: "1962-04-22",
+ runtime: 123,
+ tagline: "Together For The First Time - James Stewart - John Wayne - in the masterpiece of four-time Academy Award winner John Ford",
+ movie_image_url: "http://image.tmdb.org/t/p/w185//qEczX5Rruux72XOHDeeLJEvmZkV.jpg"
+})
+
+Owner.create!({
+  user_id: 1,
+  notes: "",
+  upc: nil,
+  rating: 3,
+  ownable_type: "Movie",
+  ownable_id: 4
+})
+
+Movie.create!({
+ title: "Once Upon a Time in the West",
+ tmdb_id: 335,
+ imdb_id: "",
+ description: "This classic western masterpiece is an epic film about a widow whose land and life are in danger as the railroad is getting closer and closer to taking them over. A mysterious harmonica player joins forces with a desperado to protect the woman and her land.",
+ release_date: "1968-12-21",
+ runtime: 175,
+ tagline: "There were three men in her life. One to take her... one to love her... and one to kill her.",
+ movie_image_url: "http://image.tmdb.org/t/p/w185//rVAHRtAMhV8QVXQMQ8NxNbZXCDp.jpg"
+})
+
+Owner.create!({
+  user_id: 1,
+  notes: "",
+  upc: nil,
+  rating: 3,
+  ownable_type: "Movie",
+  ownable_id: 5
+})
+
+Movie.create!({
+ title: "Real Genius",
+ tmdb_id: 14370,
+ imdb_id: "",
+ description: "Chris is the top brain who just wants to party, Mitch is the 15-year-old college wiz kid. Supposedly hard at work on a lab project with a mysterious deadline, they still find time to use their genius to discover new ways to have fun.",
+ release_date: "1985-08-07",
+ runtime: 106,
+ tagline: "Who ELSE can turn lasers into light shows, aircraft into armchairs, and high-tech into hijinks?",
+ movie_image_url: "http://image.tmdb.org/t/p/w185//1HxrHluqDwou74TrE3bRqoiQN9N.jpg"
+})
+
+Owner.create!({
+  user_id: 1,
+  notes: "",
+  upc: nil,
+  rating: 3,
+  ownable_type: "Movie",
+  ownable_id: 6
+})
+
