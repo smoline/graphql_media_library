@@ -7,6 +7,7 @@ import InputBase from '@material-ui/core/InputBase'
 import { fade, makeStyles } from '@material-ui/core/styles'
 import MenuIcon from '@material-ui/icons/Menu'
 import SearchIcon from '@material-ui/icons/Search'
+import UserInfo from '../UserInfo'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -62,7 +63,18 @@ const useStyles = makeStyles(theme => ({
       },
     },
   },
-}));
+  userInfo: {
+    position: 'relative',
+    borderRadius: theme.shape.borderRadius,
+    marginLeft: 0,
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: theme.spacing(1),
+      width: 'auto',
+    },
+    padding: '0 16px',
+  },
+}))
 
 export default function SearchAppBar() {
   const classes = useStyles();
@@ -94,6 +106,9 @@ export default function SearchAppBar() {
               }}
               inputProps={{ 'aria-label': 'search' }}
             />
+          </div>
+          <div className={classes.userInfo}>
+            <UserInfo />
           </div>
         </Toolbar>
       </AppBar>

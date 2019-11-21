@@ -2,12 +2,25 @@ import React, { useRef } from 'react'
 import { Query, Mutation } from 'react-apollo'
 import { Me, SignMeIn } from './operations.graphql'
 import './user-info.scss'
+import { makeStyles } from '@material-ui/core/styles'
+import Button from '@material-ui/core/Button'
+
+const useStyles = makeStyles(theme => ({
+  button: {
+    margin: theme.spacing(1),
+    color: '#eeeeee',
+  },
+  input: {
+    display: 'none',
+  },
+}))
 
 const UserInfo = () => {
   const input = useRef(null)
+  const classes = useStyles()
 
   return (
-    <div className="panel">
+    <div>
       <Query query={Me}>
         {({ data, loading }) => {
           if (loading) return '...Loading'
@@ -26,7 +39,7 @@ const UserInfo = () => {
                   authenticating ? (
                     '...'
                   ) : (
-                      <div className={cs.signIn}>
+                      <div className="user-signin">
                         <form
                           onSubmit={event => {
                             event.preventDefault();
@@ -42,14 +55,15 @@ const UserInfo = () => {
                           <input
                             ref={input}
                             type="email"
-                            className={cs.input}
+                            className="user-input"
                             placeholder="your email"
                           />
-                          <input
-                            type="submit"
-                            className={cs.button}
-                            value="Sign In"
-                          />
+                          <Button
+                            variant="outlined"
+                            className={classes.button}
+                            type="submit">
+                            Sign In
+                          </Button>
                         </form>
                       </div>
                     )
@@ -59,7 +73,7 @@ const UserInfo = () => {
           }
 
           const { fullName } = data.me
-          return <div className={cs.info}>😈 {fullName}</div>
+          return <div className="user-name">Signed in as {fullName}</div>
         }}
       </Query>
     </div>

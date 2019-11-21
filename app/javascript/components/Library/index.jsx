@@ -28,10 +28,10 @@ const MOVIE_QUERY = gql`
       }
     }
   }
-`;
+`
 
 export default () => (
-  <Container>
+  <Container maxWidth="xl">
     <Query query={MOVIE_QUERY}>
       {({ data, loading }) => (
         <div>
