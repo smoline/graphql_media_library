@@ -4,7 +4,7 @@ import gql from 'graphql-tag'
 import Container from '@material-ui/core/Container'
 import './library.scss'
 
-const LIBRARY_QUERY = gql`
+const MOVIE_QUERY = gql`
   {
     movies {
       id
@@ -32,7 +32,7 @@ const LIBRARY_QUERY = gql`
 
 export default () => (
   <Container>
-    <Query query={LIBRARY_QUERY}>
+    <Query query={MOVIE_QUERY}>
       {({ data, loading }) => (
         <div>
           {loading ? 'loading...' : data.movies.map(({ id, title, movieImageUrl, releaseDate, runtime }) => (
