@@ -17,7 +17,7 @@ class AddPeopleCastAndCrew < ActiveRecord::Migration[6.0]
     create_table :casts do |t|
       t.references :castable, polymorphic: true
       t.string :character
-      t.references :people, null: false, foreign_key: true
+      t.references :person, null: false, foreign_key: true
 
       t.timestamps
     end
@@ -26,7 +26,7 @@ class AddPeopleCastAndCrew < ActiveRecord::Migration[6.0]
       t.references :crewable, polymorphic: true
       t.string :department
       t.string :job
-      t.references :people, null: false, foreign_key: true
+      t.references :person, null: false, foreign_key: true
 
       t.timestamps
     end

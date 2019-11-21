@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 2019_10_21_195836) do
     t.string "castable_type"
     t.bigint "castable_id"
     t.string "character"
-    t.bigint "people_id", null: false
+    t.bigint "person_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["castable_type", "castable_id"], name: "index_casts_on_castable_type_and_castable_id"
-    t.index ["people_id"], name: "index_casts_on_people_id"
+    t.index ["person_id"], name: "index_casts_on_person_id"
   end
 
   create_table "crews", force: :cascade do |t|
@@ -31,11 +31,11 @@ ActiveRecord::Schema.define(version: 2019_10_21_195836) do
     t.bigint "crewable_id"
     t.string "department"
     t.string "job"
-    t.bigint "people_id", null: false
+    t.bigint "person_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["crewable_type", "crewable_id"], name: "index_crews_on_crewable_type_and_crewable_id"
-    t.index ["people_id"], name: "index_crews_on_people_id"
+    t.index ["person_id"], name: "index_crews_on_person_id"
   end
 
   create_table "movies", force: :cascade do |t|
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 2019_10_21_195836) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "casts", "people", column: "people_id"
-  add_foreign_key "crews", "people", column: "people_id"
+  add_foreign_key "casts", "people"
+  add_foreign_key "crews", "people"
   add_foreign_key "owners", "users"
 end
