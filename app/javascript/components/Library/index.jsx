@@ -32,6 +32,9 @@ const MOVIE_QUERY = gql`
 
 export default () => (
   <Container maxWidth="xl">
+    <header className="movie-header">
+      <h2>My Movies</h2>
+    </header>
     <Query query={MOVIE_QUERY}>
       {({ data, loading }) => (
         <div>

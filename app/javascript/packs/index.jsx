@@ -17,6 +17,13 @@ const theme = createMuiTheme({
     },
     secondary: blue,
   },
+  typography: {
+    fontFamily: [
+      'Helvetica',
+      'Arial',
+      'sans-serif',
+    ].join(','),
+  },
 })
 
 render(
