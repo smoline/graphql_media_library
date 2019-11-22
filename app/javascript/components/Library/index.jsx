@@ -2,7 +2,19 @@ import React from 'react'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import Container from '@material-ui/core/Container'
+import { withStyles } from '@material-ui/core/styles'
+import { Rating } from '@material-ui/lab'
+import StarBorderIcon from '@material-ui/icons/StarBorder'
 import './library.scss'
+
+const StyledRating = withStyles({
+  iconFilled: {
+    color: '#ff6d75',
+  },
+  iconHover: {
+    color: '#ff3d47',
+  },
+})(Rating)
 
 const MOVIE_QUERY = gql`
   {
@@ -45,12 +57,16 @@ export default () => (
                   <div className="media-title">
                     <p>{title}</p>
                   </div>
+                  <div className="media-row3">
+                    <Rating
+                      name="customized-empty"
+                      value={3}
+                      emptyIcon={<StarBorderIcon fontSize="inherit" color="primary" />}
+                    />
+                  </div>
                   <div className="media-row2">
                     <p>{releaseDate}</p>
                     <p>{runtime} mins</p>
-                  </div>
-                  <div className="media-row3">
-                    <p>**Rating**</p>
                   </div>
                 </div>
               </div>
