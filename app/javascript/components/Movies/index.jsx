@@ -2,19 +2,9 @@ import React from 'react'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import Container from '@material-ui/core/Container'
-import { withStyles } from '@material-ui/core/styles'
 import { Rating } from '@material-ui/lab'
 import StarBorderIcon from '@material-ui/icons/StarBorder'
-import './library.scss'
-
-const StyledRating = withStyles({
-  iconFilled: {
-    color: '#ff6d75',
-  },
-  iconHover: {
-    color: '#ff3d47',
-  },
-})(Rating)
+import './movies.scss'
 
 const MOVIE_QUERY = gql`
   {

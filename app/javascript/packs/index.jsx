@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import Provider from '../components/Provider'
-import Library from '../components/Library'
+import Movies from '../components/Movies'
 import SearchAppBar from '../components/Navigation'
 import { ThemeProvider } from '@material-ui/core/styles'
 import { createMuiTheme } from '@material-ui/core/styles'
@@ -30,7 +30,7 @@ render(
   <ThemeProvider theme={theme}>
     <Provider>
       <SearchAppBar />
-      <Library />
+      <Movies />
     </Provider>
   </ThemeProvider>,
   document.querySelector('#root')
