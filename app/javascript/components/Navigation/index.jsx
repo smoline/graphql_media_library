@@ -4,10 +4,16 @@ import Toolbar from '@material-ui/core/Toolbar'
 import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 import InputBase from '@material-ui/core/InputBase'
-import { fade, makeStyles } from '@material-ui/core/styles'
+import { fade, makeStyles, withStyles } from '@material-ui/core/styles'
 import MenuIcon from '@material-ui/icons/Menu'
 import SearchIcon from '@material-ui/icons/Search'
 import UserInfo from '../UserInfo'
+import './navigation.scss'
+
+import Menu from '@material-ui/core/Menu'
+import MenuItem from '@material-ui/core/MenuItem'
+import ListItemText from '@material-ui/core/ListItemText'
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -76,8 +82,37 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
+const StyledMenu = withStyles({
+  paper: {
+    border: '1px solid #d3d4d5',
+  },
+})(props => (
+  <Menu
+    elevation={0}
+    getContentAnchorEl={null}
+    anchorOrigin={{
+      vertical: 'bottom',
+      horizontal: 'center',
+    }}
+    transformOrigin={{
+      vertical: 'top',
+      horizontal: 'center',
+    }}
+    {...props}
+  />
+))
+
 export default function SearchAppBar() {
-  const classes = useStyles();
+  const classes = useStyles()
+  const [anchorEl, setAnchorEl] = React.useState(null)
+
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget)
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
 
   return (
     <div className={classes.root}>
@@ -88,9 +123,33 @@ export default function SearchAppBar() {
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
+            onClick={handleClick}
           >
             <MenuIcon />
           </IconButton>
+            <StyledMenu
+              id="customized-menu"
+              anchorEl={anchorEl}
+              keepMounted
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+            <Link to="/movies" className="navbar-menu-item">
+              <MenuItem>
+                <ListItemText primary="Movies" />
+              </MenuItem>
+            </Link>
+            <Link to="/movies" className="navbar-menu-item">
+              <MenuItem>
+                <ListItemText primary="TV Shows" />
+              </MenuItem>
+            </Link>
+            <Link to="/movies" className="navbar-menu-item">
+              <MenuItem>
+                <ListItemText primary="Games" />
+              </MenuItem>
+            </Link>
+            </StyledMenu>
           <Typography className={classes.title} variant="h6" noWrap>
             My Media Library
           </Typography>
