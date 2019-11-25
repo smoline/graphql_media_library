@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { Query, Mutation } from 'react-apollo'
-import { Me, SignMeIn } from './operations.graphql'
+import { Me, SignMeIn } from './user-info.graphql'
 import './user-info.scss'
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
