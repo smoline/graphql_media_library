@@ -1,0 +1,23 @@
+query MovieShow {
+  movies {
+    id
+    title
+    description
+    releaseDate
+    movieImageUrl
+    runtime
+    tagline
+    tmdbId
+    imdbId
+    owners {
+      id
+      notes
+      rating
+      upc
+      user {
+        email
+        fullName
+      }
+    }
+  }
+}

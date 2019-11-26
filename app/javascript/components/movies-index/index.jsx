@@ -11,13 +11,9 @@ const MOVIE_QUERY = gql`
     movies {
       id
       title
-      description
       releaseDate
       movieImageUrl
       runtime
-      tagline
-      tmdbId
-      imdbId
       owners {
         id
         notes
@@ -32,37 +28,41 @@ const MOVIE_QUERY = gql`
   }
 `
 
-export default () => (
-  <Container maxWidth="xl">
-    <header className="movie-header">
-      <h2>My Movies</h2>
-    </header>
-    <Query query={MOVIE_QUERY}>
-      {({ data, loading }) => (
-        <div className="main-container">
-          {loading ? 'loading...' : data.movies.map(({ id, title, movieImageUrl, releaseDate, runtime }) => (
-              <div key={id} className="media-container">
-                <div className="image-box"><img src={movieImageUrl} /></div>
-                <div className="text-container">
-                  <div className="media-title">
-                    <p>{title}</p>
+export default class Movie extends React.Component {
+  render () {
+    return (
+      <Container maxWidth="xl">
+        <header className="movie-header">
+          <h2>My Movies</h2>
+        </header>
+        <Query query={MOVIE_QUERY}>
+          {({ data, loading }) => (
+            <div className="main-container">
+              {loading ? 'loading...' : data.movies.map(({ id, title, movieImageUrl, releaseDate, runtime }) => (
+                  <div key={id} className="media-container">
+                    <div className="image-box"><img src={movieImageUrl} /></div>
+                    <div className="text-container">
+                      <div className="media-title">
+                        <p>{title}</p>
+                      </div>
+                      <div className="media-row3">
+                        <Rating
+                          name="customized-empty"
+                          value={3}
+                          emptyIcon={<StarBorderIcon fontSize="inherit" color="primary" />}
+                        />
+                      </div>
+                      <div className="media-row2">
+                        <p>{releaseDate}</p>
+                        <p>{runtime} mins</p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="media-row3">
-                    <Rating
-                      name="customized-empty"
-                      value={3}
-                      emptyIcon={<StarBorderIcon fontSize="inherit" color="primary" />}
-                    />
-                  </div>
-                  <div className="media-row2">
-                    <p>{releaseDate}</p>
-                    <p>{runtime} mins</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-        </div>
-      )}
-    </Query>
-  </Container>
-)
+                ))}
+            </div>
+          )}
+        </Query>
+      </Container>
+    )
+  }
+}
