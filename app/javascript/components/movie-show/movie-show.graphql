@@ -1,5 +1,5 @@
-query MovieShow {
-  movies {
+query MovieShowQuery($id: ID!) {
+  movie(id: $id) {
     id
     title
     description
@@ -9,14 +9,13 @@ query MovieShow {
     tagline
     tmdbId
     imdbId
-    owners {
+    casts {
       id
-      notes
-      rating
-      upc
-      user {
-        email
-        fullName
+      character
+      person {
+        id
+        name
+        birthday
       }
     }
   }
