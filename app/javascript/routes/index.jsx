@@ -11,8 +11,8 @@ export default (
     <Switch>
       <Route exact path="/" component={Movies} />
       <Route exact path="/movies" component={Movies} />
-      <Route exact path="/movies/:id" component={MovieShow} />
       <Route exact path="/movies/create" component={MovieCreate} />
+      <Route exact path="/movies/:id" component={MovieShow} />
     </Switch>
   </div>
 )
