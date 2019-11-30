@@ -3,7 +3,7 @@ module Types
     field :id, ID, null: false
     field :title, String, null: false
     field :description, String, null: true
-    field :tmdb_id, Integer, null: false
+    field :tmdb_id, Integer, null: true
     field :imdb_id, String, null: true
     field :release_date, String, null: true
     field :runtime, Integer, null: true
