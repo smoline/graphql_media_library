@@ -1,27 +1,19 @@
 module Mutations
   class MovieUpdateMutation < Mutations::BaseMutation
     argument :id, ID, required: true
-    argument :title, String, required: true
-    argument :description, String, required: false
-    argument :tmdb_id, Integer, required: false
-    argument :imdb_id, String, required: false
-    argument :release_date, String, required: false
-    argument :runtime, Integer, required: false
-    argument :tagline, String, required: false
-    argument :movie_image_url, String, required: false
+    argument :arguments, Inputs::MovieUpdateInput, required: true
 
-    field :movie, Types::MovieType, null: true
+    field :movie, Types::MovieType, null: false
     field :errors, [String], null: false
 
-    def resolve(id:, 
-                title:,
-                description: nil,
-                tmdb_id: nil,
-                imdb_id: nil,
-                release_date: nil,
-                runtime: nil,
-                tagline: nil,
-                movie_image_url: nil)
+    def resolve(title: arguments.title,
+                description: arguments.description,
+                tmdb_id: arguments.tmdb_id,
+                imdb_id: arguments.imdb_id,
+                release_date: arguments.release_date,
+                runtime: arguments.runtime,
+                tagline: arguments.tagline,
+                movie_image_url: arguments.movie_image_url)
       if context[:current_user].nil?
         raise GraphQL::ExecutionError,
               "You need to authenticate to perform this action"
