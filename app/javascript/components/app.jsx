@@ -7,6 +7,7 @@ import { blue } from '@material-ui/core/colors'
 
 const theme = createMuiTheme({
   palette: {
+    type: 'dark',
     primary: {
       light: '#eeeeee',
       main: '#757575',
