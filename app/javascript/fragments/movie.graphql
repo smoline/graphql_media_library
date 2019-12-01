@@ -1,0 +1,7 @@
+fragment MovieFragment on Movie {
+  id
+  title
+  releaseDate
+  movieImageUrl
+  runtime
+}
