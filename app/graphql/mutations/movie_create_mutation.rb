@@ -3,7 +3,7 @@ module Mutations
     argument :attributes, Inputs::MovieCreateInput, required: true
 
     field :movie, Types::MovieType, null: false
-    field :errors, [String], null: false
+    field :errors, Types::ValidationErrorsType, null: true
 
     def resolve(attributes:)
       check_authentication!
@@ -13,7 +13,7 @@ module Mutations
       if movie.save
         { movie: movie }
       else
-        { errors: movie.errors.full_messages }
+        { errors: movie.errors }
       end
     end
   end
