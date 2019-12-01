@@ -1,33 +1,11 @@
 import React from 'react'
 import { Query } from 'react-apollo'
-import gql from 'graphql-tag'
+import { MovieIndexQuery } from './movies-index.graphql'
 import Container from '@material-ui/core/Container'
 import { Rating } from '@material-ui/lab'
 import StarBorderIcon from '@material-ui/icons/StarBorder'
 import './movies.scss'
 import { Link } from 'react-router-dom'
-
-const MOVIE_QUERY = gql`
-  {
-    movies {
-      id
-      title
-      releaseDate
-      movieImageUrl
-      runtime
-      owners {
-        id
-        notes
-        rating
-        upc
-        user {
-          email
-          fullName
-        }
-      }
-    }
-  }
-`
 
 export default class Movie extends React.Component {
   render () {
@@ -36,7 +14,7 @@ export default class Movie extends React.Component {
         <header className="movie-header">
           <h2>My Movies</h2>
         </header>
-        <Query query={MOVIE_QUERY}>
+        <Query query={MovieIndexQuery}>
           {({ data, loading }) => (
             <div className="main-container">
               {loading ? 'loading...' : data.movies.map(({ id, title, movieImageUrl, releaseDate, runtime }) => (

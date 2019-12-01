@@ -1,11 +1,9 @@
+#import '../../fragments/movie.graphql'
+
 query MovieShowQuery($id: ID!) {
   movie(id: $id) {
-    id
-    title
+    ...MovieFragment
     description
-    releaseDate
-    movieImageUrl
-    runtime
     tagline
     tmdbId
     imdbId

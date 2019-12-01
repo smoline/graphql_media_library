@@ -1,0 +1,17 @@
+#import '../../fragments/movie.graphql'
+
+query MovieIndexQuery {
+  movies {
+    ...MovieFragment
+    owners {
+      id
+      notes
+      rating
+      upc
+      user {
+        email
+        fullName
+      }
+    }
+  }
+}
