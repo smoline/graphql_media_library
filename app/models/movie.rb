@@ -4,4 +4,6 @@ class Movie < ApplicationRecord
   include Crewable
   
   has_many :users, through: :owners
+
+  validates :title, presence: true
 end
