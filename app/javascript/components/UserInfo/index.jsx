@@ -3,7 +3,8 @@ import { Query, Mutation } from 'react-apollo'
 import { Me, SignMeIn } from './user-info.graphql'
 import './user-info.scss'
 import { makeStyles } from '@material-ui/core/styles'
-import Button from '@material-ui/core/Button'
+import { TextField, Button } from '@material-ui/core'
+import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -12,6 +13,13 @@ const useStyles = makeStyles(theme => ({
   },
   input: {
     display: 'none',
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: 200,
+    height: '15px',
+    padding: '0',
   },
 }))
 
@@ -52,11 +60,12 @@ const UserInfo = () => {
                             });
                           }}
                         >
-                          <input
-                            ref={input}
+                          <TextField
+                            inputRef={input}
                             type="email"
-                            className="user-input"
+                            className={classes.textField}
                             placeholder="your email"
+                            margin="dense"
                           />
                           <Button
                             variant="outlined"
@@ -73,7 +82,9 @@ const UserInfo = () => {
           }
 
           const { fullName } = data.me
-          return <div className="user-name">Signed in as {fullName}</div>
+          return <Typography variant="h5">
+                   Signed in as {fullName}
+                 </Typography>
         }}
       </Query>
     </div>

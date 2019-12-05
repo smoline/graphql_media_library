@@ -78,7 +78,6 @@ const useStyles = makeStyles(theme => ({
       marginLeft: theme.spacing(1),
       width: 'auto',
     },
-    padding: '0 16px',
   },
 }))
 
