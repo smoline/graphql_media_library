@@ -1,0 +1,28 @@
+#import '../../fragments/movie.graphql'
+
+mutation MovieUpdateMutation(
+  $attributes: MovieUpdateInput!
+) {
+  movieUpdate(attributes: $attributes) {
+    movie {
+      ...MovieFragment
+      description
+      tagline
+      tmdbId
+      imdbId
+      owners {
+        id
+        notes
+        rating
+        upc
+        user {
+          email
+          fullName
+        }
+      }
+    }
+    errors {
+      fullMessages
+    }
+  }
+}
